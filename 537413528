@@ -6,7 +6,6 @@ local chestPosition = Vector3.new(15, -5, 9495)
 local player = game.Players.LocalPlayer
 local autoFarming = false
 local antiAFKEnabled = true
-
 local autoFarmGui
 local bodyVelocity
 local mainFrame
@@ -52,7 +51,6 @@ function startAutoFarm()
                 hrp.CFrame = CFrame.new(chestPosition)
 
                 character:BreakJoints()
-
                 wait(9)
             end
         end
@@ -105,34 +103,12 @@ function createAutoFarmGui()
     local titleLabel = Instance.new("TextLabel", topBar)
     titleLabel.Size = UDim2.new(1, -70, 1, 0)
     titleLabel.Position = UDim2.new(0, 10, 0, 0)
-    titleLabel.Text = "Auto Farm GUI"
+    titleLabel.Text = "Auto Farm"
     titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
     titleLabel.Font = Enum.Font.GothamBold
     titleLabel.TextSize = 16
     titleLabel.BackgroundTransparency = 1
     titleLabel.TextXAlignment = Enum.TextXAlignment.Left
-
-    local minimizeButton = Instance.new("TextButton", topBar)
-    minimizeButton.Size = UDim2.new(0, 30, 0, 30)
-    minimizeButton.Position = UDim2.new(1, -60, 0, 0)
-    minimizeButton.Text = "_"
-    minimizeButton.TextSize = 20
-    minimizeButton.Font = Enum.Font.GothamBold
-    minimizeButton.BackgroundColor3 = Color3.fromRGB(80, 80, 255)
-    minimizeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    minimizeButton.BorderSizePixel = 0
-    makeRounded(minimizeButton)
-
-    local closeButton = Instance.new("TextButton", topBar)
-    closeButton.Size = UDim2.new(0, 30, 0, 30)
-    closeButton.Position = UDim2.new(1, -30, 0, 0)
-    closeButton.Text = "X"
-    closeButton.TextSize = 20
-    closeButton.Font = Enum.Font.GothamBold
-    closeButton.BackgroundColor3 = Color3.fromRGB(255, 80, 80)
-    closeButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    closeButton.BorderSizePixel = 0
-    makeRounded(closeButton)
 
     local startButton = Instance.new("TextButton", mainFrame)
     startButton.Size = UDim2.new(0.8, 0, 0.15, 0)
@@ -141,23 +117,6 @@ function createAutoFarmGui()
     startButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
     startButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     makeRounded(startButton)
-
-    -- Minimized Frame
-    local minimizedFrame = Instance.new("Frame", autoFarmGui)
-    minimizedFrame.Size = UDim2.new(0, 120, 0, 40)
-    minimizedFrame.Position = UDim2.new(0.5, -60, 0, 10)
-    minimizedFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    minimizedFrame.Visible = false
-    makeRounded(minimizedFrame)
-    makeDraggable(minimizedFrame)
-
-    local openButton = Instance.new("TextButton", minimizedFrame)
-    openButton.Size = UDim2.new(1, 0, 1, 0)
-    openButton.Text = "Open Auto Farm"
-    openButton.BackgroundTransparency = 1
-    openButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    openButton.Font = Enum.Font.GothamBold
-    openButton.TextSize = 14
 
     -- Events
     startButton.MouseButton1Click:Connect(function()
@@ -168,34 +127,6 @@ function createAutoFarmGui()
         else
             stopFlying()
             teleportToBase()
-        end
-    end)
-
-    antiAFKButton.MouseButton1Click:Connect(function()
-        antiAFKEnabled = not antiAFKEnabled
-        if antiAFKEnabled then
-            startAntiAFK()
-            antiAFKButton.Text = "Disable Anti-AFK"
-        else
-            antiAFKButton.Text = "Enable Anti-AFK"
-        end
-    end)
-
-    minimizeButton.MouseButton1Click:Connect(function()
-        mainFrame.Visible = false
-        minimizedFrame.Visible = true
-    end)
-
-    openButton.MouseButton1Click:Connect(function()
-        minimizedFrame.Visible = false
-        mainFrame.Visible = true
-    end)
-
-    closeButton.MouseButton1Click:Connect(function()
-        autoFarming = false
-        stopFlying()
-        if autoFarmGui then
-            autoFarmGui:Destroy()
         end
     end)
 end
