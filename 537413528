@@ -142,14 +142,6 @@ function createAutoFarmGui()
     startButton.TextColor3 = Color3.fromRGB(255, 255, 255)
     makeRounded(startButton)
 
-    local antiAFKButton = Instance.new("TextButton", mainFrame)
-    antiAFKButton.Size = UDim2.new(0.8, 0, 0.15, 0)
-    antiAFKButton.Position = UDim2.new(0.1, 0, 0.5, 0)
-    antiAFKButton.Text = "Enable Anti-AFK"
-    antiAFKButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    antiAFKButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    makeRounded(antiAFKButton)
-
     -- Minimized Frame
     local minimizedFrame = Instance.new("Frame", autoFarmGui)
     minimizedFrame.Size = UDim2.new(0, 120, 0, 40)
