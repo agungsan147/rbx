@@ -86,37 +86,41 @@ end
 function createAutoFarmGui()
     autoFarmGui = Instance.new("ScreenGui", game.CoreGui)
 
-    mainFrame = Instance.new("Frame", autoFarmGui)
-    mainFrame.Size = UDim2.new(0, 300, 0, 250)
-    mainFrame.Position = UDim2.new(0.5, -150, 0.5, -125)
-    mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-    makeRounded(mainFrame)
-    makeDraggable(mainFrame)
+mainFrame = Instance.new("Frame", autoFarmGui)
+mainFrame.Size = UDim2.new(0, 220, 0, 140) -- lebih kecil
+mainFrame.Position = UDim2.new(0.5, -110, 0.5, -70)
+mainFrame.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
+mainFrame.BorderSizePixel = 0
+makeRounded(mainFrame)
+makeDraggable(mainFrame)
 
-    -- Top Bar with Title and buttons
-    local topBar = Instance.new("Frame", mainFrame)
-    topBar.Size = UDim2.new(1, 0, 0, 30)
-    topBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
-    topBar.BorderSizePixel = 0
-    makeRounded(topBar)
+-- Top Bar (lebih kecil & simple)
+local topBar = Instance.new("Frame", mainFrame)
+topBar.Size = UDim2.new(1, 0, 0, 25)
+topBar.BackgroundColor3 = Color3.fromRGB(20, 20, 20)
+topBar.BorderSizePixel = 0
+makeRounded(topBar)
 
-    local titleLabel = Instance.new("TextLabel", topBar)
-    titleLabel.Size = UDim2.new(1, -70, 1, 0)
-    titleLabel.Position = UDim2.new(0, 10, 0, 0)
-    titleLabel.Text = "Auto Farm"
-    titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
-    titleLabel.Font = Enum.Font.GothamBold
-    titleLabel.TextSize = 16
-    titleLabel.BackgroundTransparency = 1
-    titleLabel.TextXAlignment = Enum.TextXAlignment.Left
+local titleLabel = Instance.new("TextLabel", topBar)
+titleLabel.Size = UDim2.new(1, 0, 1, 0)
+titleLabel.Text = "Auto Farm"
+titleLabel.TextColor3 = Color3.fromRGB(255, 255, 255)
+titleLabel.Font = Enum.Font.GothamBold
+titleLabel.TextSize = 14
+titleLabel.BackgroundTransparency = 1
+titleLabel.TextXAlignment = Enum.TextXAlignment.Center
 
-    local startButton = Instance.new("TextButton", mainFrame)
-    startButton.Size = UDim2.new(0.8, 0, 0.15, 0)
-    startButton.Position = UDim2.new(0.1, 0, 0.3, 0)
-    startButton.Text = "Start Auto Farm"
-    startButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
-    startButton.TextColor3 = Color3.fromRGB(255, 255, 255)
-    makeRounded(startButton)
+-- Tombol utama (dipusatkan)
+local startButton = Instance.new("TextButton", mainFrame)
+startButton.Size = UDim2.new(0.8, 0, 0, 35)
+startButton.Position = UDim2.new(0.1, 0, 0.5, -17)
+startButton.Text = "Start"
+startButton.BackgroundColor3 = Color3.fromRGB(50, 50, 50)
+startButton.TextColor3 = Color3.fromRGB(255, 255, 255)
+startButton.Font = Enum.Font.GothamBold
+startButton.TextSize = 14
+startButton.BorderSizePixel = 0
+makeRounded(startButton)
 
     -- Events
     startButton.MouseButton1Click:Connect(function()
