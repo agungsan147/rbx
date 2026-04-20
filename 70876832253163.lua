@@ -1,4 +1,3 @@
--- Start
 local allowedPlace = game.PlaceId == 70876832253163
 
 if allowedPlace then
