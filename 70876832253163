@@ -1,6 +1,5 @@
 -- Start
-local placeId = game.PlaceId
-local allowedPlace = placeId == 70876832253163
+local allowedPlace = game.PlaceId == 70876832253163
 
 if allowedPlace then
     -- Local
