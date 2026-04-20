@@ -1,13 +1,15 @@
 -- Start
 local placeId = game.PlaceId
 local allowedPlace = placeId == 70876832253163
-local Players = game:GetService("Players")
-local player = Players.LocalPlayer
-local ReplicatedStorage = game:GetService("ReplicatedStorage")
-local UIS = game:GetService("UserInputService")
-local VIM = game:GetService("VirtualInputManager")
 
 if allowedPlace then
+    -- Local
+    local Players = game:GetService("Players")
+    local player = Players.LocalPlayer
+    local ReplicatedStorage = game:GetService("ReplicatedStorage")
+    local UIS = game:GetService("UserInputService")
+    local VIM = game:GetService("VirtualInputManager")
+
     -- Remote
     local remote = ReplicatedStorage:WaitForChild("Shared")
         :WaitForChild("Universe")
@@ -21,7 +23,7 @@ if allowedPlace then
 
     -- Range ID
     local START_ID = 1200
-    local END_ID   = 2100
+    local END_ID = 2100
 
     -- Durasi
     local FARM_TIME = 180 -- 3 menit
